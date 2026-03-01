@@ -1,0 +1,103 @@
+/*
+Josh's Custom CSS Reset: https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*
+  Theme: CSS custom properties for light/dark mode.
+  Light is the default. Dark activates via data-theme="dark" on <html>.
+*/
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-link: #1a6bca;
+  --color-border: #d4d4d4;
+}
+
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-text: #e0e0e0;
+  --color-link: #6db3f2;
+  --color-border: #3a3a3a;
+}
+
+html {
+  background-color: var(--color-bg);
+  transition: background-color 0.2s;
+}
+
+body {
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+
+a {
+  color: var(--color-link);
+}
+
+hr {
+  border-color: var(--color-border);
+}

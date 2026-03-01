@@ -1,0 +1,26 @@
+<!--
+  ThemeSwitcher: single button toggling between Light and Dark.
+  On first visit, honors OS preference via prefers-color-scheme.
+  Persists choice to localStorage.
+-->
+<span id="theme-toggle" title="Toggle theme">☀️</span>
+
+<style>
+  #theme-toggle {
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("theme-toggle")!;
+  const current = document.documentElement.dataset.theme || "light";
+  btn.textContent = current === "dark" ? "🌙" : "☀️";
+
+  btn.addEventListener("click", () => {
+    const next =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("theme", next);
+    btn.textContent = next === "dark" ? "🌙" : "☀️";
+  });
+</script>
